@@ -2,7 +2,7 @@
 🔹 Focus on: Loops, conditions, functions, basic data structures.
 🔹 Goal: Strengthen fundamentals, break problems into steps.
 
-- [ ]  Number Guessing Game – User guesses a random number; program gives hints.
+- [x]  ~~Number Guessing Game – User guesses a random number; program gives hints.~~
 
 - [ ]  Basic Calculator – Perform +, -, *, / with user input.
 
