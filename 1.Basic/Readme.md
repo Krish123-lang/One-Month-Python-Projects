@@ -16,7 +16,7 @@
 
 - [x]  ~~Even-Odd Number Checker – Take input, determine if it’s even or odd.~~
 
-- [ ]  Prime Number Checker – Check if a number is prime.
+- [x]  ~~Prime Number Checker – Check if a number is prime.~~
 
 - [ ]  Simple Login System – Take username & password, verify stored credentials.
 
