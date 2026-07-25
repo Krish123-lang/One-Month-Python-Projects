@@ -4,7 +4,7 @@
 
 - [x]  ~~Number Guessing Game – User guesses a random number; program gives hints.~~
 
-- [ ]  Basic Calculator – Perform +, -, *, / with user input.
+- [x]  ~~Basic Calculator – Perform +, -, *, / with user input.~~
 
 - [ ]  To-Do List (CLI) – Add, remove, and display tasks in a list.
 
