@@ -8,7 +8,7 @@
 
 - [x]  ~~To-Do List (CLI) – Add, remove, and display tasks in a list.~~
 
-- [ ]  Rock-Paper-Scissors – Play against the computer (random choice).
+- [x]  ~~Rock-Paper-Scissors – Play against the computer (random choice).~~
 
 - [ ]  Word Counter – Count words and characters in user-inputted text.
 
