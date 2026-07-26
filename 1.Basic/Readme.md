@@ -12,7 +12,7 @@
 
 - [x]  ~~Word Counter – Count words and characters in user-inputted text.~~
 
-- [ ]  Temperature Converter – Convert between Celsius, Fahrenheit, and Kelvin.
+- [x]  ~~Temperature Converter – Convert between Celsius, Fahrenheit, and Kelvin.~~
 
 - [x]  ~~Even-Odd Number Checker – Take input, determine if it’s even or odd.~~
 
