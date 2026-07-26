@@ -10,7 +10,7 @@
 
 - [x]  ~~Rock-Paper-Scissors – Play against the computer (random choice).~~
 
-- [ ]  Word Counter – Count words and characters in user-inputted text.
+- [x]  ~~Word Counter – Count words and characters in user-inputted text.~~
 
 - [ ]  Temperature Converter – Convert between Celsius, Fahrenheit, and Kelvin.
 
