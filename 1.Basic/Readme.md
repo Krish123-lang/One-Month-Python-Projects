@@ -6,7 +6,7 @@
 
 - [x]  ~~Basic Calculator – Perform +, -, *, / with user input.~~
 
-- [ ]  To-Do List (CLI) – Add, remove, and display tasks in a list.
+- [x]  ~~To-Do List (CLI) – Add, remove, and display tasks in a list.~~
 
 - [ ]  Rock-Paper-Scissors – Play against the computer (random choice).
 
