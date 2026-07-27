@@ -4,7 +4,7 @@
 
 - [ ] Fibonacci Sequence Generator – Print the first N Fibonacci numbers.
 
-- [ ] Palindrome Checker – Check if a word or number reads the same backward.
+- [x] ~~Palindrome Checker – Check if a word or number reads the same backward.~~
 
 - [ ] Factorial Calculator – Find the factorial of a given number.
 
