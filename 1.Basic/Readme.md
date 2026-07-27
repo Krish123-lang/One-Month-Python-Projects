@@ -18,7 +18,7 @@
 
 - [x]  ~~Prime Number Checker – Check if a number is prime.~~
 
-- [ ]  Simple Login System – Take username & password, verify stored credentials.
+- [x]  ~~Simple Login System – Take username & password, verify stored credentials.~~
 
 - [x]  ~~Multiplication Table Generator – Print tables up to a given number.~~
 
