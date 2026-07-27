@@ -5,4 +5,13 @@ dict1 = {
     "laptop_brand": "Asus Vivibook",
     "university": "PUSOE"
 }
-print(dict1["address"])
+dict1["home address"] = "Biratnagar"
+
+# print(dict1["address"])
+# print(dict1["home address"])
+# print(dict1.get("home address"))
+
+# print(dict1.keys())
+# print(dict1.values())
+
+print(dict1.items())
