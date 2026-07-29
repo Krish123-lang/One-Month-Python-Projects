@@ -4,7 +4,7 @@
 
 - [x] ~~Palindrome Checker – Check if a word or number reads the same backward.~~
 
-- [ ] Anagram Checker – Check if two words are anagrams of each other.
+- [x] ~~Anagram Checker – Check if two words are anagrams of each other.~~
 
 - [ ] Age Calculator – Take birth year, output current age.
 
