@@ -10,7 +10,7 @@
 
 - [ ] Simple ATM System – Withdraw, deposit, and check balance.
 
-- [ ] Random Password Generator – Generate secure passwords with mixed characters.
+- [x] ~~Random Password Generator – Generate secure passwords with mixed characters.~~
 
 - [ ] Basic CRUD App (CLI) – Create, read, update, and delete notes.
 
