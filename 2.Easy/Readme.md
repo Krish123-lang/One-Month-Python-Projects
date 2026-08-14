@@ -6,7 +6,7 @@
 
 - [x] ~~Anagram Checker – Check if two words are anagrams of each other.~~
 
-- [ ] Age Calculator – Take birth year, output current age.
+- [x] ~~Age Calculator – Take birth year, output current age.~~
 
 - [ ] Simple ATM System – Withdraw, deposit, and check balance.
 
