@@ -8,7 +8,7 @@
 
 - [x] ~~Age Calculator – Take birth year, output current age.~~
 
-- [ ] Simple ATM System – Withdraw, deposit, and check balance.
+- [x] ~~Simple ATM System – Withdraw, deposit, and check balance.~~
 
 - [x] ~~Random Password Generator – Generate secure passwords with mixed characters.~~
 
