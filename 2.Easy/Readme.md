@@ -12,6 +12,6 @@
 
 - [x] ~~Random Password Generator – Generate secure passwords with mixed characters.~~
 
-- [ ] Basic CRUD App (CLI) – Create, read, update, and delete notes.
+- [x] ~~Basic CRUD App (File Handling) – Create, read, update, and delete notes.~~
 
 ✅ Outcome: You’ll get stronger with loops, conditions, and handling user input.
