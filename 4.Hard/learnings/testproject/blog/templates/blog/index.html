@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>This is index page</h1>
+{% comment %} {{data.name | title}} | {{data.email}} {% endcomment %}
+
+<a href="{% url "create_post" %}">Create Post</a>
+    {% for post in posts %}
+        <h3>{{post.title}}</h3>
+        {{post.author | title}}
+        <p>{{post.content}}</p>
+        <i>{{post.published_at | date:"M d, Y"}}</i>
+
+        <a href="{% url "edit_post" post.id %}">Edit</a>
+        <a href="{% url "delete_post" post.id %}">Delete</a>
+        <hr>
+    {% endfor %}
+{% endblock content %}

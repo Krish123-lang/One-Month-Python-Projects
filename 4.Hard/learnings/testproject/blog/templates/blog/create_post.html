@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>{% if id %}Edit {% else %}New{% endif %} Post</h3>
+<form method="POST" novalidate>
+    {% csrf_token %}
+    {{postform.as_p}}
+    <input type="submit" value="Submit">
+</form>
+{% endblock content %}

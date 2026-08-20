@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 style="text-decoration: underline;">Details</h1>
+<h3>{{todo_details.title}}</h3>
+<p>{{todo_details.description}}</p>
+<i>{{todo_details.created_at}}</i>
+
+<div class="mt-3"><a href="{% url "index" %}" class="btn btn-sm btn-primary">Go back</a></div>
+{% endblock content %}
