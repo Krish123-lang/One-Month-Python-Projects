@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Register</h2>
+<form method="post" novalidate>
+    {% csrf_token %}
+
+    {% for field in form %}
+	<p>
+		{% if field.errors %}
+		<ul class="errorlist">
+			{% for error in field.errors %}
+			<li>{{ error }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	 	{{ field.label_tag }} {{ field }}
+	</p>
+	{% endfor %}
+    
+    <p>Already have an account? <a href="{% url "register_user" %}">Register</a></p>
+    <button type="submit">Submit</button>
+</form>
+{% endblock content %}

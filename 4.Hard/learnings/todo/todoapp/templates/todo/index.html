@@ -9,6 +9,7 @@
             <th>SN</th>
             <th>Title</th>
             <th>Description</th>
+            <th>Author</th>
             <th>Created at</th>
             <th>Actions</th>
         </tr>
@@ -20,10 +21,15 @@
                     <td>{{forloop.counter}}</td>
                     <td><a style="text-decoration: none; color: #000" href="{% url "todo_details" todo.pk %}">{{todo.title|truncatechars:50}}</a></td>
                     <td>{{todo.description|truncatechars:50}}</td>
+                    <td>{{todo.author}}</td>
                     <td>{{todo.created_at}}</td>
                     <td>
-                        <a href="{% url "todo_update" todo.pk %}" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="{% url "todo_delete" todo.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                        {% if request.user.is_authenticated and request.user == todo.author %}
+                            <a href="{% url "todo_update" todo.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="{% url "todo_delete" todo.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                        {% else %}
+                            <p>You can't access this !</p>
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}        

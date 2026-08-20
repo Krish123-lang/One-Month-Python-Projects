@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import TodoForm
 from todoapp.models import Todo
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -18,6 +19,7 @@ def todo_details(request, pk):
     return render(request, "todo/todo_details.html", {'todo_details': todo_details})
 
 
+@login_required
 def create_todo(request):
     if request.method == "GET":
         form = TodoForm()
@@ -27,7 +29,9 @@ def create_todo(request):
     elif request.method == "POST":
         form = TodoForm(request.POST)
         if form.is_valid():
-            form.save()
+            user=form.save(commit=False)
+            user.author=request.user
+            user.save()
             messages.success(request, "Todo has been created!")
             return redirect("index")
         else:
@@ -35,8 +39,10 @@ def create_todo(request):
             return render(request, "todo/create_todo.html", context)
 
 
+@login_required
 def todo_update(request, pk):
-    update_todo = get_object_or_404(Todo, pk=pk)
+    queryset = Todo.objects.filter(author=request.user)
+    update_todo = get_object_or_404(queryset, pk=pk)
 
     if request.method == "GET":
         form = TodoForm(instance=update_todo)
@@ -54,8 +60,10 @@ def todo_update(request, pk):
             return render(request, "todo/create_todo.html", {'form': form})
 
 
+@login_required
 def todo_delete(request, pk):
-    del_todo = get_object_or_404(Todo, pk=pk)
+    queryset = Todo.objects.filter(author=request.user)
+    del_todo = get_object_or_404(queryset, pk=pk)
     context = {'del_todo': del_todo}
 
     if request.method == "GET":
