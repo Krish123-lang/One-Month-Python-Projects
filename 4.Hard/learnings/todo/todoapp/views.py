@@ -27,7 +27,7 @@ def create_todo(request):
         return render(request, "todo/create_todo.html", context)
 
     elif request.method == "POST":
-        form = TodoForm(request.POST)
+        form = TodoForm(request.POST, request.FILES)
         if form.is_valid():
             user=form.save(commit=False)
             user.author=request.user
@@ -50,7 +50,7 @@ def todo_update(request, pk):
         return render(request, "todo/create_todo.html", context)
 
     elif request.method == "POST":
-        form = TodoForm(request.POST, instance=update_todo)
+        form = TodoForm(request.POST, request.FILES, instance=update_todo)
         if form.is_valid():
             form.save()
             messages.success(request, "Todo updated successfully!")

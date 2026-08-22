@@ -8,6 +8,7 @@ class Todo(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now_add=True)
+    images=models.ImageField(upload_to="todo_images/", null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

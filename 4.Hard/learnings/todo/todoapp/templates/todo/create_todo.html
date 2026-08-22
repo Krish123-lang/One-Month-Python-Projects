@@ -2,7 +2,7 @@
 
 {% block content %}
 <h3>{% if id %}Edit {% else %}Add{% endif %} Todo</h3>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Submit</button>
