@@ -62,4 +62,55 @@
             {% endfor %}        
     </tbody>
 </table>
+
+<!-- Pagination Navigation Grid -->
+{% if todos.has_other_pages %}
+<div class="pagination-container" style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+    <div class="text-muted" style="font-size: 0.9rem;">
+        Showing items {{ todos.start_index }} to {{ todos.end_index }} of {{ todos.paginator.count }}
+    </div>
+
+    <nav aria-label="Page navigation">
+        <ul style="display: flex; list-style: none; gap: 5px; padding: 0; margin: 0;">
+            
+            <!-- Previous Button: Maintains the &q search string parameter -->
+            {% if todos.has_previous %}
+                <li>
+                    <a href="?page={{ todos.previous_page_number }}&q={{ search_query }}" style="padding: 6px 12px; border: 1px solid #ddd; text-decoration: none; color: #007bff; border-radius: 4px;">Previous</a>
+                </li>
+            {% else %}
+                <li>
+                    <span style="padding: 6px 12px; border: 1px solid #ddd; color: #ccc; border-radius: 4px; cursor: not-allowed;">Previous</span>
+                </li>
+            {% endif %}
+
+            <!-- Numbered Links Loop -->
+            {% for num in todos.paginator.page_range %}
+                {% if todos.number == num %}
+                    <li>
+                        <span style="padding: 6px 12px; background-color: #007bff; color: white; border: 1px solid #007bff; border-radius: 4px; font-weight: bold;">{{ num }}</span>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="?page={{ num }}&q={{ search_query }}" style="padding: 6px 12px; border: 1px solid #ddd; text-decoration: none; color: #007bff; border-radius: 4px;">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <!-- Next Button: Maintains the &q search string parameter -->
+            {% if todos.has_next %}
+                <li>
+                    <a href="?page={{ todos.next_page_number }}&q={{ search_query }}" style="padding: 6px 12px; border: 1px solid #ddd; text-decoration: none; color: #007bff; border-radius: 4px;">Next</a>
+                </li>
+            {% else %}
+                <li>
+                    <span style="padding: 6px 12px; border: 1px solid #ddd; color: #ccc; border-radius: 4px; cursor: not-allowed;">Next</span>
+                </li>
+            {% endif %}
+            
+        </ul>
+    </nav>
+</div>
+{% endif %}
+
 {% endblock content %}

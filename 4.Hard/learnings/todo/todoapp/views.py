@@ -4,21 +4,28 @@ from todoapp.models import Todo
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.core.paginator import Paginator
 # Create your views here.
 
 
 def index(request):
-    todos = Todo.objects.all()
-
+    todos_list = Todo.objects.all().order_by('-created_at')
+    
     search_query = request.GET.get('q', '')
+    
     if search_query:
-        todos = todos.filter(
+        todos_list = todos_list.filter(
             Q(title__icontains=search_query) | 
             Q(description__icontains=search_query)
         ).distinct()
+    
+    paginator = Paginator(todos_list, 5) 
+    page_number = request.GET.get('page')
+    todos = paginator.get_page(page_number)
+
     context = {
         "todos": todos,
-        "search_query": search_query
+        "search_query": search_query,
     }
     return render(request, "todo/index.html", context)
 
