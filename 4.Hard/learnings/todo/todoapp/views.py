@@ -3,13 +3,22 @@ from .forms import TodoForm
 from todoapp.models import Todo
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 # Create your views here.
 
 
 def index(request):
     todos = Todo.objects.all()
+
+    search_query = request.GET.get('q', '')
+    if search_query:
+        todos = todos.filter(
+            Q(title__icontains=search_query) | 
+            Q(description__icontains=search_query)
+        ).distinct()
     context = {
-        "todos": todos
+        "todos": todos,
+        "search_query": search_query
     }
     return render(request, "todo/index.html", context)
 
@@ -29,8 +38,8 @@ def create_todo(request):
     elif request.method == "POST":
         form = TodoForm(request.POST, request.FILES)
         if form.is_valid():
-            user=form.save(commit=False)
-            user.author=request.user
+            user = form.save(commit=False)
+            user.author = request.user
             user.save()
             messages.success(request, "Todo has been created!")
             return redirect("index")

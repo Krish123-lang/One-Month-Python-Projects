@@ -3,6 +3,19 @@
 <h1>All Todos</h1>
 
 <a href="{% url "create_todo" %}">Add Todo</a>
+
+<div class="mb-4" style="margin-bottom: 20px; max-width: 500px;">
+    <form action="{% url "index" %}" method="get" style="display: flex; gap: 10px;">
+        <input type="text" name="q" class="form-control" placeholder="Search task or description..." value="{{search_query}}" style="padding: 6px 12px; width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+        <button type="submit" class="btn btn-primary" style="background-color: #007bff; color: white; border: none; padding: 6px 16px; border-radius: 4px; cursor: pointer;">Search</button>
+        {% if search_query %}
+            <a href="{% url 'index' %}" class="btn btn-secondary" style="background-color: #6c757d; color: white; padding: 6px 16px; border-radius: 4px; text-decoration: none; display: inline-block;">
+                Clear
+            </a>
+        {% endif %}
+    </form>
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -38,6 +51,12 @@
                         {% else %}
                             <p>You can't access this !</p>
                         {% endif %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="7" style="text-align: center; color: #777; padding: 20px;">
+                        No todos found matching your search.
                     </td>
                 </tr>
             {% endfor %}        
