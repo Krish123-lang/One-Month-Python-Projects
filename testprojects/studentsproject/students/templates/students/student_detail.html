@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Details{% endblock title %}
+{% block content %}
+<h1>Name: {{student.name}}</h1>
+<p>Email: {{student.email}}</p>
+<p>Roll number: {{student.roll_number}}</p>
+<p>Department: {{student.get_department_display}}</p>
+<p>Age: {{student.age}}</p>
+
+<a href="{% url "student-list" %}">Back to the list</a>
+
+{% if user.is_authenticated %}
+    <a href="{% url "student-update" student.pk %}">Edit</a>
+{% endif %}
+{% endblock content %}

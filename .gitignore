@@ -218,4 +218,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
-testprojects/
+.agents
+.claude
+.grok
+.tabnine
+.vibe
+.widfsurf
+.qwen
+skills
+*.json

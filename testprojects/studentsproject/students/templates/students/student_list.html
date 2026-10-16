@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}List of Students{% endblock title %}
+{% block content %}
+<div class="">
+    <h1>Students</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+
+    <p>Total students: {{total_students}}</p>
+    <form method="get">
+        <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search by name...">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if user.is_authenticated %}
+        <a href="{% url "student-create" %}">Add student</a>
+    {% else %}
+        <a href="{% url "login" %}?next={% url "student-create" %}">Login to add a student</a>
+    {% endif %}
+
+    {% for student in students %}
+        <hr>
+        <h2>Name: {{student.name}}</h2>
+        <p>Roll number: {{student.roll_number}}</p>
+        <p>Department: {{student.get_department_display}}</p>
+
+        <a href="{% url "student-detail" student.pk %}">Details</a>
+        
+        {% if user.is_authenticated %}
+            <a href="{% url "student-update" student.pk %}">Edit</a>
+            <a href="{% url "student-delete" student.pk %}">Delete</a>
+        {% endif %}
+    {% empty %}
+            <p>No student found!</p>
+    {% endfor %}
+
+    {% if is_paginated %}
+        <div>
+            {% if page_obj.has_previous %}
+                <a href="?page={{page_obj.previous_page_number}}&q={{request.GET.q}}">Previous</a>
+            {% endif %}
+            Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+            {% if page_obj.has_next %}
+                <a href="?page={{page_obj.next_page_number}}&q={{request.GET.q}}">Next</a>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+{% endblock content %}

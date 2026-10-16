@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Student Form{% endblock title %}
+{% block content %}
+<h1>
+    {% if object %}
+    Update Student
+    {% else %}
+    Create Student
+    {% endif %}
+</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Save</button>
+</form>
+
+<a href="{% url "student-list" %}">Student List</a>
+{% endblock content %}
